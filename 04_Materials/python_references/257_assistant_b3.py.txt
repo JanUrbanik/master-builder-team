@@ -1,0 +1,2 @@
+async with aiofiles.open("data.txt", "r") as file:
+    data = await file.read()

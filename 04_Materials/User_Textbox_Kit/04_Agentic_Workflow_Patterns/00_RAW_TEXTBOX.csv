@@ -1,0 +1,8 @@
+Pattern,Mechanism,Strengths,Weaknesses,Used in Our Live Team?
+Hierarchical Leader Synthesis,"Specialists contribute; leader arbitrates","Speed, coherence, clear accountability","Single point of failure; minority views can be suppressed",Yes – primary
+Majority / Plurality Voting,"Independent answers; most frequent wins","Robust to individual hallucinations; empirically strong gains","Loses nuance; ties; ignores expertise",No
+Weighted / Confidence Voting,"Votes scaled by confidence or role expertise","Reduces impact of weak agents","LLM confidence is poorly calibrated",No
+Multi-Agent Debate (MAD),"Iterative critique rounds","Surfaces errors; explores alternatives","High latency; sycophancy risk; limited accuracy gain beyond voting",Partial (Reality Checker only)
+Debate-then-Vote Hybrid,"Fixed debate rounds → final vote","Caps endless deliberation","Still higher latency",No
+Forced Consensus / Unanimity,"Agents negotiate until agreement","Strong buy-in","Deadlock risk; superficial agreement",No
+Judge / Evaluator Arbitration,"Separate judge model selects or merges","Independent quality control","Extra cost",No (Coordinator acts as both)

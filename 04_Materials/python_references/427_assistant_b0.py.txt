@@ -1,0 +1,21 @@
+import numpy as np
+
+def jaccard_similarity_ids(a, b):
+    """
+    Fast Jaccard similarity for integer ID arrays.
+    Assumes inputs are 1D arrays of item IDs.
+    """
+    a = np.asarray(a, dtype=np.int64).ravel()
+    b = np.asarray(b, dtype=np.int64).ravel()
+
+    # Remove duplicates efficiently
+    a_unique = np.unique(a)
+    b_unique = np.unique(b)
+
+    # Fast intersection for sorted integer arrays
+    intersection = np.intersect1d(a_unique, b_unique, assume_unique=True).size
+    union = a_unique.size + b_unique.size - intersection
+
+    if union == 0:
+        return 0.0
+    return intersection / union

@@ -1,0 +1,9 @@
+from contextlib import contextmanager
+
+@contextmanager
+def managed_resource():
+    resource = acquire_resource()
+    try:
+        yield resource          # This value is returned to the `as` variable
+    finally:
+        release_resource(resource)

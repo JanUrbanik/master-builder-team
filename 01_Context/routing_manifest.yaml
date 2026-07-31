@@ -1,0 +1,155 @@
+# Master Builder Team — machine-readable routing (ADOPT A)
+# Source of law: 03_Knowledge/KnowledgeBase.md ENTRY-008
+# Capability stack: ENTRY-009
+# This file does NOT replace the PROJECT_CHARTER; it encodes default topology.
+# Per-task activation/ownership/stages still come from the approved charter.
+
+workflow_name: master_builder_team_adopt_a
+version: "1.0.0"
+governance: ADOPT_A
+law_entry: ENTRY-008
+plugin_capability_entry: ENTRY-009
+ultimate_authority: User
+
+entry_point: workflow_steward_triage
+
+modes:
+  LIGHT:
+    description: Single deliverable; no lasting system; no research depth
+    skip_full_council: true
+    steps:
+      - id: mini_charter
+        owner: Workflow Steward
+        output: mini_charter
+        fields: [goal, owner_seats, deliverable_done_when]
+      - id: user_ok
+        owner: User
+        gate: true
+      - id: execute_owners
+        owner: charter_owner_seats
+        rule: call_by_exact_name_only
+      - id: package
+        owner: Final Synthesizer
+        when: if_listed_in_mini_charter
+      - id: complete
+        terminal: true
+
+  FULL:
+    description: Systems, multi-stage, or research
+    steps:
+      - id: open_initiation
+        owner: Workflow Steward
+        action: announce_initiation_no_strategy
+      - id: council_vision
+        owner: Strategic Vision Architect
+        outputs: [topic_analysis, success_criteria, non_goals, constraints]
+      - id: council_structure
+        owner: System & Reasoning Architect
+        outputs: [seat_fitness, ownership_map, collab_graph, stage_order]
+        plugins_optional: [superpowers]
+      - id: council_tools
+        owner: Tool & Function Master
+        outputs: [environment_rating, plugin_readiness_table, advanced_options]
+        plugins_inventory: [superpowers, firecrawl, tavily, chrome-devtools]
+      - id: project_charter
+        owner: Initiation Council
+        output: PROJECT_CHARTER
+        template: 06_Roadmaps/PROJECT_CHARTER_TEMPLATE.md
+      - id: user_approval_gate
+        owner: User
+        gate: true
+        on_reject: revise_charter
+        on_approve: execution
+      - id: execution
+        owner: Workflow Steward
+        rule: enforce_charter_stage_order
+        nodes_dynamic: charter.stages
+      - id: knowledge_capture
+        owners: [Knowledge Management Architect, Decision Traceability Specialist]
+        when: after_major_decisions
+      - id: final_package
+        owner: Final Synthesizer
+        when: charter_final_stage
+      - id: complete
+        terminal: true
+
+nodes:
+  workflow_steward:
+    seat: 1
+    agent_id: workflow_steward
+    file: 02_Agents/01_Coordinator.md
+    role: traffic_control
+    may_not: [strategy, tool_selection, overwrite_artifacts, free_debate]
+
+  initiation_council:
+    seats: [2, 3, 4]
+    collaborate_freely: true
+    only_during: initiation
+
+  execution_specialists:
+    seats: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    speak_when: called_by_exact_name_per_charter
+    default_collab: solo
+
+critique:
+  pre_decision:
+    seat: 6
+    max_rounds: 2
+    artifact_type: Review
+    plugins_optional: [chrome-devtools]
+  post_build:
+    seat: 10
+    max_rounds: 2
+    artifact_type: Review
+    plugins_optional: [chrome-devtools]
+
+ownership:
+  locks: true
+  one_owner_per_major_artifact: true
+  reviews_are_separate_artifacts: true
+  final_synthesizer_composes_does_not_erase: true
+
+forbidden:
+  - majority_voting
+  - weighted_confidence_voting
+  - forced_unanimity
+  - free_debate_mesh
+  - separate_judge_model
+  - silent_charter_deviation
+  - overwrite_foreign_artifacts
+
+failure_protocol:
+  - owner_retry_once
+  - steward_pause_and_charter_amendment_proposal
+  - version_charter_on_approval
+
+plugins:
+  installed:
+    - id: superpowers
+      primary_seats: [3, 8, 9]
+      kind: skills_hooks
+    - id: firecrawl
+      primary_seats: [11]
+      kind: mcp
+    - id: tavily
+      primary_seats: [11]
+      kind: mcp
+    - id: chrome-devtools
+      primary_seats: [6, 10]
+      kind: mcp
+  rating_per_task: [required, optional, "n/a"]
+  on_auth_or_quota_failure: escalate_to_user
+
+fallback:
+  ambiguity: User
+  illegal_overwrite: stop_stage_report_user
+  tool_unverified: label_assumed_or_speculative_do_not_invent
+
+runtime_paths:
+  constitution: AGENTS.md
+  knowledgebase: 03_Knowledge/KnowledgeBase.md
+  agents_dir: 02_Agents/
+  charter_template: 06_Roadmaps/PROJECT_CHARTER_TEMPLATE.md
+  activation_prompt: 05_Prompts/TEAM_ACTIVATION_AND_STRUCTURE_PROMPT.md
+  outputs: 07_Outputs/
+  materials_archive_raw: 04_Materials/raw/

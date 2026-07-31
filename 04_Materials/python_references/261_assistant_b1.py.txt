@@ -1,0 +1,11 @@
+class DatabaseConnection:
+    def __init__(self, host, port):
+        self.host = host
+        self.port = port
+
+    def __enter__(self):
+        self.conn = connect(self.host, self.port)
+        return self.conn
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.conn.close()

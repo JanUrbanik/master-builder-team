@@ -1,0 +1,5 @@
+# Example: document token IDs or memory item IDs
+doc_a = np.array([1, 5, 9, 12, 15, 9, 5], dtype=np.int64)
+doc_b = np.array([5, 9, 20, 25, 12], dtype=np.int64)
+
+print(jaccard_similarity_ids(doc_a, doc_b))
