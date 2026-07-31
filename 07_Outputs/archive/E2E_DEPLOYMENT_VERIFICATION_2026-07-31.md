@@ -1,3 +1,5 @@
+> **ARCHIVED** — frozen post-merge E2E report. Active workflow docs: repository root `README.md`.
+
 # E2E Deployment Verification Report
 **Date:** 2026-07-31  
 **Branch:** `main` @ `90b557b` (matches `origin/main`)  
