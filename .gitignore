@@ -1,8 +1,37 @@
+# OS / editor
 .DS_Store
 **/.DS_Store
+*.swp
+*.swo
+*~
+
+# Local secrets / credentials (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+auth.json
+**/.grok/auth.json
+
+# Grok / tooling local runtime
 .grok/bin/
+.grok/**/bin/
 *.lock
-# Heavy provenance dumps (kept on disk under 04_Materials/raw; not required in git)
+.local/
+
+# Nested accidental grok config (stale duplicate pattern)
+.grok/.grok/
+
+# Heavy provenance dumps (remain on disk under 04_Materials/raw; not in git)
 04_Materials/raw/shared_chat_full.json
 04_Materials/raw/share_raw.html
 04_Materials/raw/js_chunks/
+
+# Python / node local
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+
+# Archives of local machine state (outside product)
+/local_dev_archive/

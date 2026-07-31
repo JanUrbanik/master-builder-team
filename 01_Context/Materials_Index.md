@@ -67,3 +67,10 @@ https://grok.com/share/c2hhcmQtMg_4b87a6bd-bab6-4251-9a79-98fe32435b74
 | `AGENTS.md` §5 | Constitution-level plugin table |
 | `.grok/config.toml` `[plugins_stack]` | Machine-readable stack pointer |
 | Live verify | `grok plugin list` · `grok mcp doctor` · `grok inspect` |
+
+## Production
+
+| Path | Description |
+|------|-------------|
+| `01_Context/PRODUCTION.md` | Production readiness + operator machine requirements |
+| `07_Outputs/PROJECT_CLOSEOUT_2026-07-31.md` | Project closed — operational |

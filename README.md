@@ -142,6 +142,15 @@ AGENTS.md                 # Constitution
 
 ---
 
+
+---
+
+## Production
+
+See [`01_Context/PRODUCTION.md`](01_Context/PRODUCTION.md) for the production checklist, required machine runtime, plugin install, and what not to ship.
+
+Release tag: **`v1.0.0`** on `main`.
+
 ## Operator checklist (healthy stack)
 
 1. On `main`, latest pull
