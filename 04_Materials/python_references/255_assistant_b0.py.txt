@@ -1,0 +1,12 @@
+class AsyncResource:
+    async def __aenter__(self):
+        # Setup code
+        return self
+
+    async def __aexit__(self, exc_type, exc, tb):
+        # Cleanup code
+        pass
+
+async with AsyncResource() as resource:
+    # Use the resource
+    pass

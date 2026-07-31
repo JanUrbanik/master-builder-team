@@ -1,0 +1,8 @@
+.DS_Store
+**/.DS_Store
+.grok/bin/
+*.lock
+# Heavy provenance dumps (kept on disk under 04_Materials/raw; not required in git)
+04_Materials/raw/shared_chat_full.json
+04_Materials/raw/share_raw.html
+04_Materials/raw/js_chunks/

@@ -1,0 +1,53 @@
+# Grok Build configuration — Master Builder Team (ADOPT A)
+
+project_name = "Master Builder Team"
+primary_file = "AGENTS.md"
+governance = "ADOPT A"
+current_law_entry = "ENTRY-008"
+
+[team]
+size = 16
+tier = "SuperGrok Heavy"
+philosophy = "maximum truth-seeking, brutal honesty, zero hype"
+
+[initiation]
+council = [
+  "Strategic Vision Architect",
+  "System & Reasoning Architect",
+  "Tool & Function Master",
+]
+charter_required = true
+user_approval_gate = true
+light_task_mini_charter = true
+
+[execution]
+steward = "Workflow Steward"          # seat 01; traffic control only, not strategic boss
+charter_is_law = true
+ownership_locks = true                # no agent overwrites another's owned artifact
+call_agents_by_exact_full_name = true
+collab_default = "solo"               # review = common; co-own = rare (dual justification)
+voting = false
+forced_unanimity = false
+free_debate_mesh = false
+
+[knowledge]
+file = "03_Knowledge/KnowledgeBase.md"
+mode = "append-only-with-supersession"
+architect = "Knowledge Management Architect"
+decision_records = "Decision Traceability Specialist"
+
+[platforms]
+supported = ["grok_web", "grok_build", "wsl", "powershell", "python_terminal", "local_folders"]
+paths = "relative-only"
+
+# Installed Grok Build marketplace plugins (user-level install; documented for agents).
+# Verify live status with: grok plugin list && grok mcp doctor
+[plugins_stack]
+marketplace = "xai-org/plugin-marketplace"
+installed = ["superpowers", "firecrawl", "tavily", "chrome-devtools"]
+research_mcp = "tavily"
+browser_mcp = "chrome-devtools"
+planning_skills = "superpowers"
+web_extract = "firecrawl"
+kb_entry = "ENTRY-009"
+verified_date = "2026-07-30"

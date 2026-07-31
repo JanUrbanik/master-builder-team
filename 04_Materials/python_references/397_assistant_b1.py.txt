@@ -1,0 +1,7 @@
+compactor = ContextCompactor(window_size=4)
+
+compactor.add_message("user", "I want to build a 16-agent system.")
+compactor.add_message("assistant", "Understood. Let's define the roles.")
+# ... more messages ...
+
+final_context = compactor.get_context()

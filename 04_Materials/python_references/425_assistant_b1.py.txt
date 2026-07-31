@@ -1,0 +1,4 @@
+a = np.array(["user", "wants", "clean", "folder", "structure"] * 1000)
+b = np.array(["user", "wants", "organized", "folder"] * 1000)
+
+print(jaccard_similarity_fast(a, b))

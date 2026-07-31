@@ -1,0 +1,1 @@
+**2. Initialize sparse checkout with cone mode**

@@ -1,0 +1,10 @@
+# With normal lists
+print(jaccard_similarity(
+    ["user", "wants", "clean", "folder"],
+    ["user", "wants", "organized", "folder"]
+))
+
+# With NumPy arrays
+a = np.array(["user", "wants", "clean", "folder"])
+b = np.array(["user", "wants", "organized", "folder"])
+print(jaccard_similarity(a, b))

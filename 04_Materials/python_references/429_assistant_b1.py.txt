@@ -1,0 +1,15 @@
+query = np.array([1, 5, 9, 12], dtype=np.int64)
+
+documents = [
+    np.array([5, 9, 12, 20], dtype=np.int64),      # similar
+    np.array([1, 2, 3], dtype=np.int64),           # less similar
+    np.array([9, 12, 15, 18, 22], dtype=np.int64)  # medium
+]
+
+scores = batch_jaccard_similarity(query, documents)
+print(scores)
+
+# Get ranking (best match first)
+ranking = np.argsort(scores)[::-1]
+print("Best document index:", ranking[0])
+print("All ranked indices:", ranking)

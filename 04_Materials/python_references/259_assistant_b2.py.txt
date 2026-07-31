@@ -1,0 +1,7 @@
+from contextlib import contextmanager
+
+@contextmanager
+def custom_resource():
+    # Setup
+    yield
+    # Cleanup

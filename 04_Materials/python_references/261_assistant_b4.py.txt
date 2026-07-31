@@ -1,0 +1,9 @@
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def async_resource():
+    resource = await acquire_async()
+    try:
+        yield resource
+    finally:
+        await release_async(resource)

@@ -1,0 +1,18 @@
+import numpy as np
+
+def jaccard_similarity_fast(a, b):
+    """
+    Faster Jaccard similarity for larger inputs.
+    Supports lists, sets, and NumPy arrays.
+    """
+    # Convert to NumPy unique arrays for speed
+    a_unique = np.unique(np.asarray(a))
+    b_unique = np.unique(np.asarray(b))
+
+    # Intersection size using efficient 1D intersection
+    intersection = np.intersect1d(a_unique, b_unique, assume_unique=True).size
+    union = a_unique.size + b_unique.size - intersection
+
+    if union == 0:
+        return 0.0
+    return intersection / union
